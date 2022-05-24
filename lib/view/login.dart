@@ -1,16 +1,17 @@
 // ignore: avoid_web_libraries_in_flutter
 
+import 'package:bazaar/utili/appColor.dart';
 import 'package:bazaar/view/forgot_password.dart';
 import 'package:bazaar/view/signup.dart';
-import 'package:bazaar/view/utili/appColor.dart';
-import 'package:bazaar/view/widget/heightSpace.dart';
-import 'package:bazaar/view/widget/mytextformfield.dart';
-import 'package:bazaar/view/widget/widgets.dart';
+import 'package:bazaar/widget/MyButton.dart';
+import 'package:bazaar/widget/heightSpace.dart';
+import 'package:bazaar/widget/mytextformfield.dart';
+import 'package:bazaar/widget/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'homepage.dart';
-import 'widget/MyButton.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);

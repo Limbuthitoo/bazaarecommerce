@@ -1,4 +1,4 @@
-import 'package:bazaar/view/widget/heightSpace.dart';
+import 'package:bazaar/widget/heightSpace.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
