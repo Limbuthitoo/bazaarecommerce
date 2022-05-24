@@ -26,139 +26,142 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
-    return Scaffold(
-      body: SingleChildScrollView(
-        reverse: true,
-        child: Stack(children: [
-          SizedBox(
-            height: Get.size.height,
-            child: const LoginTopView(),
-          ),
-          Container(
-            height: Get.size.height,
-            alignment: Alignment.bottomCenter,
-            child: SizedBox(
-              height: Get.size.height / 2.2,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColor.kLight,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          reverse: true,
+          child: Stack(children: [
+            SizedBox(
+              height: Get.size.height,
+              child: const LoginTopView(),
+            ),
+            Container(
+              height: Get.size.height,
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                height: Get.size.height / 2.5,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.kLight,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Column(
-                    children: [
-                      MyTextFormField(
-                        hintText: "email",
-                        labelText: "email",
-                        textInput: TextInputType.emailAddress,
-                        prefixIcon: Icon(
-                          Icons.email,
-                          color: AppColor.kPrimary,
-                        ),
-                      ),
-                      const HightSpace(),
-                      MyTextFormField(
-                        obsecureText: isVisible,
-                        hintText: "Password",
-                        labelText: "Password",
-                        prefixIcon: Icon(
-                          Icons.lock,
-                          color: AppColor.kPrimary,
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            isVisible = !isVisible;
-                            setState(() {});
-                          },
-                          icon: Icon(isVisible
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          color: AppColor.kPrimary,
-                        ),
-                      ),
-                      const HightSpace(),
-                      Row(
-                        children: [
-                          const Expanded(
-                            child: SizedBox(
-                              width: 200,
-                            ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Column(
+                      children: [
+                        MyTextFormField(
+                          btnHeight: const EdgeInsets.symmetric(vertical: 17),
+                          hintText: "email",
+                          labelText: "email",
+                          textInput: TextInputType.emailAddress,
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: AppColor.kPrimary,
                           ),
-                          Expanded(
-                            child: TextButton(
+                        ),
+                        const HightSpace(),
+                        MyTextFormField(
+                          btnHeight: const EdgeInsets.symmetric(vertical: 17),
+                          obsecureText: isVisible,
+                          hintText: "Password",
+                          labelText: "Password",
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: AppColor.kPrimary,
+                          ),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              isVisible = !isVisible;
+                              setState(() {});
+                            },
+                            icon: Icon(isVisible
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            color: AppColor.kPrimary,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            const Expanded(
+                              child: SizedBox(
+                                width: 200,
+                              ),
+                            ),
+                            Expanded(
+                              child: TextButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    isDismissible: false,
+                                    isScrollControlled: true,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(50)),
+                                    ),
+                                    context: context,
+                                    builder: (context) => const ForgetView(),
+                                  );
+                                },
+                                child: Text(
+                                  "Forgot Password?",
+                                  style: TextStyle(
+                                      color: AppColor.kPrimary,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        MyButton(
+                          width: Get.size.width,
+                          height: 50,
+                          elevation: 10,
+                          text: Text(
+                            "Sign In",
+                            style: TextStyle(color: AppColor.kLight),
+                          ),
+                          onTap: () {
+                            Get.to(() => const HomeView());
+                          },
+                          color: AppColor.kDark,
+                          splashColor: AppColor.kSecondary,
+                        ),
+                        Row(
+                          children: [
+                            const Expanded(
+                                child: SizedBox(
+                              width: 250,
+                            )),
+                            const Text("Don't have an account?"),
+                            TextButton(
                               onPressed: () {
-                                showModalBottomSheet(
-                                  isDismissible: false,
-                                  isScrollControlled: true,
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(50)),
-                                  ),
-                                  context: context,
-                                  builder: (context) => const ForgetView(),
+                                Get.to(
+                                  () => const SignUpView(),
                                 );
                               },
                               child: Text(
-                                "Forgot Password?",
-                                style: TextStyle(
-                                    color: AppColor.kPrimary,
-                                    fontWeight: FontWeight.bold),
+                                "Sign Up",
+                                style: TextStyle(color: AppColor.kPrimary),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const HightSpace(),
-                      MyButton(
-                        width: Get.size.width,
-                        height: 80,
-                        elevation: 10,
-                        text: Text(
-                          "Sign In",
-                          style: TextStyle(color: AppColor.kLight),
-                        ),
-                        onTap: () {
-                          Get.to(() => const HomeView());
-                        },
-                        color: AppColor.kDark,
-                        splashColor: AppColor.kSecondary,
-                      ),
-                      Row(
-                        children: [
-                          const Expanded(
+                            const Expanded(
                               child: SizedBox(
-                            width: 250,
-                          )),
-                          const Text("Don't have an account?"),
-                          TextButton(
-                            onPressed: () {
-                              Get.to(
-                                () => const SignUpView(),
-                              );
-                            },
-                            child: Text(
-                              "Sign Up",
-                              style: TextStyle(color: AppColor.kPrimary),
+                                width: 250,
+                              ),
                             ),
-                          ),
-                          const Expanded(
-                            child: SizedBox(
-                              width: 250,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }

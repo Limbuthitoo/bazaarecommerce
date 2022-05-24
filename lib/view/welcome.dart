@@ -93,6 +93,7 @@ class WelcomeView extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: MyButton(
+                                  height: 50,
                                   elevation: 10,
                                   text: Text(
                                     "Sign In",
@@ -110,6 +111,7 @@ class WelcomeView extends StatelessWidget {
                               ),
                               Expanded(
                                 child: MyButton(
+                                  height: 50,
                                   elevation: 10,
                                   text: Text(
                                     "Sign Up",

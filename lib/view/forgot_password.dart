@@ -27,20 +27,23 @@ class _ForgetViewState extends State<ForgetView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("bAzAAr",
-                  style: TextStyle(
-                      color: AppColor.kPrimary,
-                      fontSize: 40,
-                      fontFamily: GoogleFonts.majorMonoDisplay().fontFamily,
-                      fontWeight: FontWeight.bold)),
-              const HightSpace(),
+              Text(
+                "bAzAAr",
+                style: TextStyle(
+                  color: AppColor.kPrimary,
+                  fontSize: 40,
+                  fontFamily: GoogleFonts.majorMonoDisplay().fontFamily,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const HightSpace(),
               Text(
                 "Forgot Your Password?",
                 style: TextStyle(
-                    color: AppColor.kPrimary,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
+                  color: AppColor.kPrimary,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const HightSpace(),
               Text(
@@ -53,17 +56,19 @@ class _ForgetViewState extends State<ForgetView> {
               ),
               const HightSpace(),
               MyTextFormField(
-                  hintText: "email",
-                  labelText: "email",
-                  prefixIcon: Icon(
-                    Icons.email,
-                    color: AppColor.kPrimary,
-                  ),
-                  textInput: TextInputType.emailAddress),
+                btnHeight: const EdgeInsets.symmetric(vertical: 17),
+                hintText: "email",
+                labelText: "email",
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: AppColor.kPrimary,
+                ),
+                textInput: TextInputType.emailAddress,
+              ),
               const HightSpace(),
               MyButton(
                 onTap: () {},
-                height: 80,
+                height: 50,
                 width: Get.size.width,
                 color: AppColor.kDark,
                 splashColor: AppColor.kSecondary,

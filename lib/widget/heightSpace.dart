@@ -8,7 +8,7 @@ class HightSpace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      height: 20,
+      height: 25,
     );
   }
 }

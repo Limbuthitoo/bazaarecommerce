@@ -1,4 +1,5 @@
 import 'package:bazaar/utili/appColor.dart';
+import 'package:bazaar/widget/heightSpace.dart';
 import 'package:bazaar/widget/mybackground.dart';
 
 import 'package:flutter/material.dart';
@@ -20,8 +21,8 @@ class LoadingView extends StatelessWidget {
           width: Get.size.width,
           alignment: Alignment.center,
           child: SizedBox(
-            height: 200,
-            width: 200,
+            height: 130,
+            width: 130,
             child: Card(
               elevation: 5,
               color: const Color.fromARGB(255, 233, 248, 233),
@@ -30,8 +31,8 @@ class LoadingView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: SizedBox(
-                height: 200,
-                width: 200,
+                height: 120,
+                width: 120,
                 child: Lottie.asset(
                   "assets/images/splash.json",
                   fit: BoxFit.cover,
@@ -43,15 +44,15 @@ class LoadingView extends StatelessWidget {
         Container(
           alignment: Alignment.center,
           child: Container(
-            width: 250,
-            height: 265,
+            width: 200,
+            height: 200,
             alignment: Alignment.bottomCenter,
             // width: MediaQuery.of(context).size.width,
             child: Text(
               "bAzAAr",
               style: TextStyle(
                   fontFamily: GoogleFonts.majorMonoDisplay().fontFamily,
-                  fontSize: 35,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: AppColor.kLight),
             ),
@@ -71,8 +72,9 @@ class LoginTopView extends StatelessWidget {
     return Background(
       child: Column(
         children: [
+          const HightSpace(),
           SizedBox(
-            height: Get.size.height / 2,
+            height: 400,
             width: Get.size.width,
             child: Column(
               children: [
@@ -81,7 +83,7 @@ class LoginTopView extends StatelessWidget {
                     children: [
                       Container(
                         alignment: Alignment.bottomLeft,
-                        height: 90,
+                        height: 100,
                         child: IconButton(
                           onPressed: () {
                             Navigator.pop(context);
@@ -95,7 +97,7 @@ class LoginTopView extends StatelessWidget {
                       Expanded(
                         child: Container(
                           alignment: Alignment.bottomLeft,
-                          height: 75,
+                          height: 65,
                           width: Get.size.width,
                           child: Text(
                             "bAzAAr",
