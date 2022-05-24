@@ -1,13 +1,13 @@
+import 'package:bazaar/utili/appColor.dart';
 import 'package:bazaar/view/login.dart';
-import 'package:bazaar/view/utili/appColor.dart';
-import 'package:bazaar/view/widget/heightSpace.dart';
-import 'package:bazaar/view/widget/mybackground.dart';
-import 'package:bazaar/view/widget/mytextformfield.dart';
+import 'package:bazaar/widget/MyButton.dart';
+import 'package:bazaar/widget/heightSpace.dart';
+import 'package:bazaar/widget/mybackground.dart';
+import 'package:bazaar/widget/mytextformfield.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'widget/MyButton.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);

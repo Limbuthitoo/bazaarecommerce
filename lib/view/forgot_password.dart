@@ -1,12 +1,12 @@
+import 'package:bazaar/utili/appColor.dart';
 import 'package:bazaar/view/signup.dart';
-import 'package:bazaar/view/widget/mytextformfield.dart';
+import 'package:bazaar/widget/MyButton.dart';
+import 'package:bazaar/widget/heightSpace.dart';
+import 'package:bazaar/widget/mytextformfield.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'utili/appColor.dart';
-import 'widget/MyButton.dart';
-import 'widget/heightSpace.dart';
 
 class ForgetView extends StatefulWidget {
   const ForgetView({Key? key}) : super(key: key);

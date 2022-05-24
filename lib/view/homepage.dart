@@ -1,12 +1,12 @@
-import 'package:bazaar/view/Products/fruits.dart';
-import 'package:bazaar/view/Products/meat.dart';
-import 'package:bazaar/view/Products/nut&seeds.dart';
-import 'package:bazaar/view/Products/pickles.dart';
-import 'package:bazaar/view/Products/spices.dart';
-import 'package:bazaar/view/Products/vegetables.dart';
-import 'package:bazaar/view/utili/appColor.dart';
-import 'package:bazaar/view/widget/heightSpace.dart';
-import 'package:bazaar/view/widget/mytextformfield.dart';
+import 'package:bazaar/Products/fruits.dart';
+import 'package:bazaar/Products/meat.dart';
+import 'package:bazaar/Products/nut&seeds.dart';
+import 'package:bazaar/Products/pickles.dart';
+import 'package:bazaar/Products/spices.dart';
+import 'package:bazaar/Products/vegetables.dart';
+import 'package:bazaar/utili/appColor.dart';
+import 'package:bazaar/widget/heightSpace.dart';
+import 'package:bazaar/widget/mytextformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

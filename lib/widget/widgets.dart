@@ -1,7 +1,6 @@
-import 'package:bazaar/view/forgot_password.dart';
-import 'package:bazaar/view/signup.dart';
-import 'package:bazaar/view/utili/appColor.dart';
-import 'package:bazaar/view/widget/mybackground.dart';
+import 'package:bazaar/utili/appColor.dart';
+import 'package:bazaar/widget/mybackground.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';

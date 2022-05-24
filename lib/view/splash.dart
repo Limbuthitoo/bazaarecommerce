@@ -1,9 +1,8 @@
-import 'package:bazaar/view/widget/widgets.dart';
 import 'package:bazaar/view/welcome.dart';
+import 'package:bazaar/widget/mybackground.dart';
+import 'package:bazaar/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'widget/mybackground.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);

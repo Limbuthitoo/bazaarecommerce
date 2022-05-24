@@ -1,13 +1,14 @@
+import 'package:bazaar/utili/appColor.dart';
 import 'package:bazaar/view/login.dart';
 import 'package:bazaar/view/signup.dart';
-import 'package:bazaar/view/utili/appColor.dart';
-import 'package:bazaar/view/widget/MyButton.dart';
+import 'package:bazaar/widget/MyButton.dart';
+
+import 'package:bazaar/widget/mybackground.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-
-import 'widget/mybackground.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
