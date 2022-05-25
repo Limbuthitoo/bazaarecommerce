@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "fullName": "Bijay Subba Limbu",
+      "password": "limbu1234",
+      "email": "krazzweb@gmail.com"
+    }
+  ],
+
+  "products":[
+    {
+      "product_id": 1,
+      "Product_name": "Nike Blazer Low Jumbo",
+      "Product_category": "Men's Shoes",
+      "Product_price": "Rs 9000.00",
+      "Product_image": "https://mpsports.glitch.me/images/Nike-Shoe-PNG.png",
+      "product_detail":"They say, 'Don't fix what works'. We say, 'Perfect it'. A jumbo-sized Swoosh design updates this hoops original for style that's hard to ignore. A low-profile silhouette and durable design harness the old-school look you love, while visible foam on the tongue and plush collar details add tried-and-tested comfort—it's a no-brainer.\n Benefits \n Oversized Swoosh design and jumbo laces add a bold look to any outfit.\n Stitched leather overlays and a rubber toe bumper add durability and heritage style.Rubber outsole with herringbone pattern provides traction.\nProduct Details\nExposed foam tongue\nEmbroidered branding on heel\nOversized woven label\nColor Shown: White/Black/Team Orange/Vivid Sulphur\nStyle: DV3506-100"
+
+    }
+  ],
+
+  "slide":[
+    {
+      
+    }
+  ]
+}
