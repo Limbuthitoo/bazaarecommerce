@@ -16,6 +16,13 @@ class ForgetView extends StatefulWidget {
 }
 
 class _ForgetViewState extends State<ForgetView> {
+  final myController = TextEditingController();
+  @override
+  void dispose() {
+    myController.dispose(); // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +63,7 @@ class _ForgetViewState extends State<ForgetView> {
               ),
               const HightSpace(),
               MyTextFormField(
+                text: myController,
                 btnHeight: const EdgeInsets.symmetric(vertical: 17),
                 hintText: "email",
                 labelText: "email",

@@ -1,39 +1,41 @@
 // To parse required this JSON data, do
 //
-//     final bazaarUser = bazaarUserFromJson(jsonString);
+//     final bazaarUserModel = bazaarUserModelFromJson(jsonString);
 
 import 'dart:convert';
 
-List<BazaarUser> bazaarUserFromJson(String str) =>
-    List<BazaarUser>.from(json.decode(str).map((x) => BazaarUser.fromJson(x)));
+List<BazaarUserModel> bazaarUserModelFromJson(String str) =>
+    List<BazaarUserModel>.from(
+        json.decode(str).map((x) => BazaarUserModel.fromJson(x)));
 
-String bazaarUserToJson(List<BazaarUser> data) =>
+String bazaarUserModelToJson(List<BazaarUserModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class BazaarUser {
-  BazaarUser({
+class BazaarUserModel {
+  BazaarUserModel({
     required this.id,
     required this.fullName,
-    required this.password,
     required this.email,
+    required this.password,
   });
 
   int id;
   String fullName;
-  String password;
   String email;
+  String password;
 
-  factory BazaarUser.fromJson(Map<String, dynamic> json) => BazaarUser(
+  factory BazaarUserModel.fromJson(Map<String, dynamic> json) =>
+      BazaarUserModel(
         id: json["id"],
         fullName: json["fullName"],
-        password: json["password"],
         email: json["email"],
+        password: json["password"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "fullName": fullName,
-        "password": password,
         "email": email,
+        "password": password,
       };
 }

@@ -1,3 +1,4 @@
+import 'package:bazaar/service/remote_service.dart';
 import 'package:bazaar/utili/appColor.dart';
 import 'package:bazaar/view/login.dart';
 import 'package:bazaar/widget/MyButton.dart';
@@ -17,8 +18,21 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
+  final name = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  final confirmPw = TextEditingController();
   EdgeInsets formheight() => const EdgeInsets.symmetric(vertical: 17);
   bool isVisible = true;
+
+  @override
+  void dispose() {
+    name.dispose(); // TODO: implement dispose
+    email.dispose(); // TODO: implement dispose
+    password.dispose(); // TODO: implement dispose
+    confirmPw.dispose(); // TODO: implement dispose
+    super.dispose();
+  }
   // ignore: prefer_typing_uninitialized_variables
 
   @override
@@ -115,6 +129,7 @@ class _SignUpViewState extends State<SignUpView> {
                             child: Column(
                               children: [
                                 MyTextFormField(
+                                    text: name,
                                     btnHeight: formheight(),
                                     hintText: "Full Name",
                                     labelText: "Full Name",
@@ -125,6 +140,7 @@ class _SignUpViewState extends State<SignUpView> {
                                     textInput: TextInputType.name),
                                 const HightSpace(),
                                 MyTextFormField(
+                                    text: email,
                                     btnHeight: formheight(),
                                     hintText: "email",
                                     labelText: "email",
@@ -135,6 +151,7 @@ class _SignUpViewState extends State<SignUpView> {
                                     textInput: TextInputType.emailAddress),
                                 const HightSpace(),
                                 MyTextFormField(
+                                  text: password,
                                   btnHeight: formheight(),
                                   hintText: "Password",
                                   labelText: "Password",
@@ -146,6 +163,7 @@ class _SignUpViewState extends State<SignUpView> {
                                 ),
                                 const HightSpace(),
                                 MyTextFormField(
+                                  text: confirmPw,
                                   btnHeight: formheight(),
                                   hintText: "Confirm Password",
                                   labelText: "Confirm Password",
@@ -159,7 +177,22 @@ class _SignUpViewState extends State<SignUpView> {
                                   height: 40,
                                 ),
                                 MyButton(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Map data = {
+                                      "fullName": name.text,
+                                      "email": email.text,
+                                      "password": password.text,
+                                    };
+                                    if (password.text != confirmPw.text) {
+                                      return Get.defaultDialog(
+                                          title: "Password didn't match",
+                                          content: Text("Try Again"));
+                                    } else {
+                                      BazarService.registerUser(data);
+                                      Get.off(() => LoginView());
+                                    }
+                                    ;
+                                  },
                                   height: 50,
                                   width: Get.size.width,
                                   color: AppColor.kDark,

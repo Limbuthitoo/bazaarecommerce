@@ -1,10 +1,11 @@
 import 'package:bazaar/utili/appColor.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MyTextFormField extends StatefulWidget {
   final String hintText;
   final String labelText;
-
+  final TextEditingController text;
   final TextInputType textInput;
   final double elevation;
   final bool obsecureText;
@@ -21,6 +22,7 @@ class MyTextFormField extends StatefulWidget {
     this.suffixIcon = const Text(""),
     this.textInput = TextInputType.name,
     this.obsecureText = false,
+    required this.text,
     Key? key,
   }) : super(key: key);
 
@@ -29,6 +31,7 @@ class MyTextFormField extends StatefulWidget {
 }
 
 class _MyTextFormFieldState extends State<MyTextFormField> {
+  final myController = TextEditingController().obs;
   //Change Value here.
   BorderRadius borderRadius() => BorderRadius.circular(50);
 
@@ -53,6 +56,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       child: Column(
         children: [
           TextFormField(
+            controller: widget.text,
             obscureText: widget.obsecureText,
             decoration: InputDecoration(
               hintText: widget.hintText,

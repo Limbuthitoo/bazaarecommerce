@@ -1,3 +1,4 @@
+import 'package:bazaar/binding/bazaar_binding.dart';
 import 'package:bazaar/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.roboto().fontFamily,
         primarySwatch: Colors.blue,
       ),
+      initialBinding: BazaarBindings(),
       home: const SplashView(),
     );
   }
