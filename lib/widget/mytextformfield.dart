@@ -46,8 +46,9 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
   Widget build(BuildContext context) {
     return Material(
       elevation: widget.elevation,
+
       // clipBehavior: Clip.antiAlias,
-      shadowColor: AppColor.kPrimary,
+      shadowColor: AppColor.kPrimary.withOpacity(0.5),
       borderRadius: borderRadius(),
       child: Column(
         children: [
