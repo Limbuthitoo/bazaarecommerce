@@ -1,4 +1,5 @@
 import 'package:bazaar/binding/bazaar_binding.dart';
+import 'package:bazaar/view/homepage.dart';
 import 'package:bazaar/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialBinding: BazaarBindings(),
-      home: const SplashView(),
+      home: const HomeView(),
     );
   }
 }

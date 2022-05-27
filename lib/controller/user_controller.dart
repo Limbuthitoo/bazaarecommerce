@@ -7,6 +7,7 @@ class UserController extends GetxController {
   var isLoading = true.obs;
   Future getUser() async {
     try {
+      isLoading(true);
       var data = await BazarService.fetchUser();
       if (data != null) {
         userData.value = data;
@@ -16,12 +17,5 @@ class UserController extends GetxController {
     } finally {
       isLoading(false);
     }
-  }
-
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    getUser();
-    super.onInit();
   }
 }

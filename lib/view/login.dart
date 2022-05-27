@@ -35,18 +35,25 @@ class _LoginViewState extends State<LoginView> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    uc.getUser();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
     return SafeArea(
       child: Scaffold(
         body: Obx(() {
           if (uc.isLoading == true) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
             return SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               reverse: true,
               child: Stack(children: [
                 SizedBox(
@@ -164,7 +171,7 @@ class _LoginViewState extends State<LoginView> {
                                           Get.defaultDialog(
                                               title:
                                                   "Email or Password didn't match",
-                                              content: Text("Try Again"));
+                                              content: const Text("Try Again"));
                                         }
                                       },
                                       color: AppColor.kDark,
