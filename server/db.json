@@ -1,40 +1,91 @@
 {
   "users": [
+
     {
       "id": 1,
       "fullName": "Bijay Subba Limbu",
       "email": "bijaysubbalimbu@gmail.com",
       "password": "Limbo12345"
     },
+
     {
-      "fullName": "amar shakya",
+      "fullName": "Amar Shakya",
       "email": "amr@gmail.com",
       "password": "amr123",
       "id": 2
     },
+
     {
       "fullName": "Hari Prasad",
       "email": "Hari@gmail.com",
-      "password": "hari1234",
+      "password": "Hari1234",
       "id": 3
     }
+
   ],
   "categories": [
+
     {
-      "productId": 1,
+      "categoryId": 1,
       "ProductCategory": "Men's Shoes"
+    },
+
+    {
+      "categoryId": 2,
+      "ProductCategory": "Women's Shoes"
     }
+
   ],
   "products": [
+
     {
       "productId": 1,
       "ProductName": "Nike Blazer Low Jumbo",
-      "ProductPricetele": "Rs 9000.00",
-      "ProductImage": "https://mpsports.glitch.me/images/Nike-Shoe-PNG.png",
+      "ProductPrice": "Rs 12000.00",
+      "ProductImage": "assets/images/shoe1.png",
       "product_detail": "They say, 'Don't fix what works'. We say, 'Perfect it'. A jumbo-sized Swoosh design updates this hoops original for style that's hard to ignore. A low-profile silhouette and durable design harness the old-school look you love, while visible foam on the tongue and plush collar details add tried-and-tested comfort—it's a no-brainer.\n Benefits \n Oversized Swoosh design and jumbo laces add a bold look to any outfit.\n Stitched leather overlays and a rubber toe bumper add durability and heritage style.Rubber outsole with herringbone pattern provides traction.\nProduct Details\nExposed foam tongue\nEmbroidered branding on heel\nOversized woven label\nColor Shown: White/Black/Team Orange/Vivid Sulphur\nStyle: DV3506-100"
+    },
+
+    {
+      "productId": 2,
+      "ProductName": "Nike Air Force 1 '07",
+      "ProductPrice": "Rs 9000.00",
+      "ProductImage": "assets/images/shoe2.png",
+      "product_detail": "Taken from the court to the street and back since the '80s, the AF-1 is a cherished icon. With a special tonal message on the Swoosh and red accents, these classic kicks are made to love.\n Benefits\n Stitched leather overlays on the upper add heritage style, durability and support.\n Originally designed for hoops, Nike Air cushioning adds lightweight, all-day comfort.\n Padding at the collar feels soft and comfortable.\n Product Details\n Foam in the midsole\n Perforations on the toe\n Color Shown: White/University Red/Sail/Atmosphere\n Style: DR0144-100"
+    },
+
+    {
+      "productId": 3,
+      "ProductName": "Nike Dunk Low Scrap Premium",
+      "ProductPrice": "Rs 8000.00",
+      "ProductImage": "assets/images/shoe3.png",
+      "product_detail": "Step into an artisan world in the Nike Dunk Low Scrap Premium. Pulling inspiration from the cobbler's cutting room floor, this crafted design brings a fresh look to the hoops icon. The mismatched nature between left and right shoes is a result of stitching together excess materials from Nike factories while the rich mixture of fabrics delivers a high-fashion buzz to your off-court style.\n Benefits\n Mixed upper combines open mesh and soft suedes for breath ability and durability.\n Patchwork design creates a customized look that differs on each side.\n Foam midsole gives you lightweight, responsive cushioning.\n Padded, low-cut collar looks sleek and feels great.\n Product Details\n Foam tongue\n Color Shown: Black/Neutral Grey/University Blue/White\n Style: DN5381-001"
+    },
+
+    {
+      "productId": 4,
+      "ProductName": "Nike Dunk Low",
+      "ProductPrice": "Rs 5000.00",
+      "ProductImage": "assets/images/shoe4.png",
+      "product_detail": "Created for the hardwood but taken to the streets, the Nike Dunk Low brings back an '80s b-ball icon. Throwback hoops flair, a durable upper and a low-cut silhouette honour the original while a vibrant, layered Swoosh design adds stacked style that'll easily fit into your kicks collection.\n Benefits\n Real and synthetic leather are durable and have a throwback feel reminiscent of the original Dunk.\n Foam midsole offers lightweight, responsive cushioning.\n The padded, low-cut collar adds a sleek look that feels great.\n Rubber outsole with classic hoops pivot circle adds durability, traction and heritage style.\n Color Shown: White/Volt/Football Grey/Blackened Blue\n Style: DV6482-100"
+    },
+
+    {
+      "productId": 5,
+      "ProductName": "Nike Air Max 90",
+      "ProductPrice": "Rs 15000.00",
+      "ProductImage": "assets/images/shoe5.png",
+      "product_detail": "Nothing as fly, nothing as comfortable, nothing as proven. The Nike Air Max 90 stays true to its roots with an iconic Waffle outsole, stitched overlays and classic moulded plastic accents. Fresh colors give these kicks a modern look, while Max Air cushioning adds comfort to your journey.\n Benefits\n Stitched overlays and plastic accents add durability, comfort and the iconic '90s look you love.\n Originally designed for performance running, visible Air cushioning in the heel puts the history of comfort beneath your feet.\n Low-top design is combined with a padded collar for a sleek look that feels soft and comfortable.\n Rubber Waffle outsole delivers traction, durability and heritage style.\n Product Details\n Textile upper with leather and synthetic overlays\n Foam midsole\n Color Shown: White/Volt/Football Grey/Blackened Blue\n Style: DV6819-100"
     }
+
   ],
+
   "slides": [
-    {}
+
+    {
+
+    }
+
   ]
+
 }
