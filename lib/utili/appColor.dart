@@ -8,3 +8,10 @@ class AppColor {
   static Color kBgOne = Colors.purple.shade700;
   static Color kBgTwo = Colors.purple.shade800;
 }
+
+class SliderColor {
+  static Color kSlide1 = Colors.blue;
+  static Color kSlide2 = Colors.purple;
+  static Color kSlide3 = Colors.purple;
+  static Color kSlide4 = Colors.purple;
+}

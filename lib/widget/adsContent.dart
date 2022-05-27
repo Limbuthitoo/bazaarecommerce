@@ -25,10 +25,10 @@ class AdsContent extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Container(
               width: 270,
-              height: 200,
+              height: 220,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: AppColor.kPrimary,
+                color: SliderColor.kSlide1,
               ),
             ),
           ),
