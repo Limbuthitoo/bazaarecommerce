@@ -2,6 +2,7 @@ import 'package:bazaar/utili/appColor.dart';
 import 'package:bazaar/view/signup.dart';
 import 'package:bazaar/widget/MyButton.dart';
 import 'package:bazaar/widget/heightSpace.dart';
+
 import 'package:bazaar/widget/mytextformfield.dart';
 
 import 'package:flutter/material.dart';
@@ -63,10 +64,11 @@ class _ForgetViewState extends State<ForgetView> {
               ),
               const HightSpace(),
               MyTextFormField(
+                validate: (value) => value!.isEmpty ? "Required Email" : null,
                 text: myController,
                 btnHeight: const EdgeInsets.symmetric(vertical: 17),
-                hintText: "email",
-                labelText: "email",
+                hintText: "Email",
+                labelText: "Email",
                 prefixIcon: Icon(
                   Icons.email,
                   color: AppColor.kPrimary,

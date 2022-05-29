@@ -7,6 +7,7 @@ class AppColor {
   static Color kLight = Colors.white;
   static Color kBgOne = Colors.purple.shade700;
   static Color kBgTwo = Colors.purple.shade800;
+  static Color kError = Colors.red.shade800;
 }
 
 class SliderColor {

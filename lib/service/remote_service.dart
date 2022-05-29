@@ -2,8 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bazaar/model/user_model.dart';
+import 'package:bazaar/utili/appColor.dart';
+import 'package:bazaar/view/homepage.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BazarService {
   static var client = http.Client();
@@ -24,20 +27,25 @@ class BazarService {
 
   // Fetching Users list
 
-  static Future<List<BazaarUserModel>?> fetchUser() async {
+  static Future login(String email, String password) async {
     try {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
       var response = await client.get(
-        Uri.parse("$baseUrl/users"),
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
+        Uri.parse("$baseUrl/users?email=$email&password=$password"),
       );
-      if (response.statusCode == 200) {
-        var jsonString = response.body;
-        return bazaarUserModelFromJson(jsonString);
+      var jsonData = jsonDecode(response.body);
+      print(jsonData);
+      if (jsonData.length > 0) {
+        //login
+        preferences.setString("id", jsonData[0]["id"].toString());
+        preferences.setString("username", jsonData[0]["id"].toString());
+        preferences.setString("email", jsonData[0]["id"].toString());
+        Get.off(() => const HomeView());
       } else {
-        return null;
+        Get.snackbar("Error", "Invalid email or password",
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: AppColor.kPrimary,
+            colorText: AppColor.kLight);
       }
     } catch (error) {
       Get.snackbar("Error", error.toString());

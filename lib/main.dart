@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialBinding: BazaarBindings(),
-      home: const HomeView(),
+      home: const SplashView(),
     );
   }
 }

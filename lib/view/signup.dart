@@ -4,6 +4,7 @@ import 'package:bazaar/view/login.dart';
 import 'package:bazaar/widget/MyButton.dart';
 import 'package:bazaar/widget/heightSpace.dart';
 import 'package:bazaar/widget/mybackground.dart';
+
 import 'package:bazaar/widget/mytextformfield.dart';
 
 import 'package:flutter/material.dart';
@@ -19,11 +20,13 @@ class SignUpView extends StatefulWidget {
 
 class _SignUpViewState extends State<SignUpView> {
   final name = TextEditingController();
+  final username = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
   final confirmPw = TextEditingController();
   EdgeInsets formheight() => const EdgeInsets.symmetric(vertical: 17);
   bool isVisible = true;
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -31,6 +34,7 @@ class _SignUpViewState extends State<SignUpView> {
     email.dispose(); // TODO: implement dispose
     password.dispose(); // TODO: implement dispose
     confirmPw.dispose(); // TODO: implement dispose
+    username.dispose(); // TODO: implement dispose
     super.dispose();
   }
   // ignore: prefer_typing_uninitialized_variables
@@ -126,9 +130,11 @@ class _SignUpViewState extends State<SignUpView> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
-                            child: Column(
-                              children: [
-                                MyTextFormField(
+                            child: Form(
+                              key: _key,
+                              child: Column(
+                                children: [
+                                  MyTextFormField(
                                     text: name,
                                     btnHeight: formheight(),
                                     hintText: "Full Name",
@@ -137,9 +143,28 @@ class _SignUpViewState extends State<SignUpView> {
                                       Icons.person,
                                       color: AppColor.kPrimary,
                                     ),
-                                    textInput: TextInputType.name),
-                                const HightSpace(),
-                                MyTextFormField(
+                                    textInput: TextInputType.name,
+                                    validate: (value) => value!.isEmpty
+                                        ? "Required Full Name"
+                                        : null,
+                                  ),
+                                  const HightSpace(),
+                                  MyTextFormField(
+                                    text: username,
+                                    btnHeight: formheight(),
+                                    hintText: "Username",
+                                    labelText: "Username",
+                                    prefixIcon: Icon(
+                                      Icons.person,
+                                      color: AppColor.kPrimary,
+                                    ),
+                                    textInput: TextInputType.name,
+                                    validate: (value) => value!.isEmpty
+                                        ? "Required Username"
+                                        : null,
+                                  ),
+                                  const HightSpace(),
+                                  MyTextFormField(
                                     text: email,
                                     btnHeight: formheight(),
                                     hintText: "email",
@@ -148,85 +173,98 @@ class _SignUpViewState extends State<SignUpView> {
                                       Icons.email,
                                       color: AppColor.kPrimary,
                                     ),
-                                    textInput: TextInputType.emailAddress),
-                                const HightSpace(),
-                                MyTextFormField(
-                                  text: password,
-                                  btnHeight: formheight(),
-                                  hintText: "Password",
-                                  labelText: "Password",
-                                  prefixIcon: Icon(
-                                    Icons.lock,
-                                    color: AppColor.kPrimary,
+                                    textInput: TextInputType.emailAddress,
+                                    validate: (value) => value!.isEmpty
+                                        ? "Required email"
+                                        : null,
                                   ),
-                                  obsecureText: true,
-                                ),
-                                const HightSpace(),
-                                MyTextFormField(
-                                  text: confirmPw,
-                                  btnHeight: formheight(),
-                                  hintText: "Confirm Password",
-                                  labelText: "Confirm Password",
-                                  prefixIcon: Icon(
-                                    Icons.lock,
-                                    color: AppColor.kPrimary,
-                                  ),
-                                  obsecureText: true,
-                                ),
-                                const SizedBox(
-                                  height: 40,
-                                ),
-                                MyButton(
-                                  onTap: () {
-                                    Map data = {
-                                      "fullName": name.text,
-                                      "email": email.text,
-                                      "password": password.text,
-                                    };
-                                    if (password.text != confirmPw.text) {
-                                      return Get.defaultDialog(
-                                          title: "Password didn't match",
-                                          content: Text("Try Again"));
-                                    } else {
-                                      BazarService.registerUser(data);
-                                      Get.off(() => LoginView());
-                                    }
-                                    ;
-                                  },
-                                  height: 50,
-                                  width: Get.size.width,
-                                  color: AppColor.kDark,
-                                  splashColor: AppColor.kSecondary,
-                                  text: const Text("Sign Up"),
-                                ),
-                                HightSpace(),
-                                Row(
-                                  children: [
-                                    const Expanded(
-                                        child: SizedBox(
-                                      width: 250,
-                                    )),
-                                    const Text("Already have an account?"),
-                                    TextButton(
-                                      onPressed: () {
-                                        Get.to(
-                                          () => const LoginView(),
-                                        );
-                                      },
-                                      child: Text(
-                                        "Sign In",
-                                        style:
-                                            TextStyle(color: AppColor.kPrimary),
-                                      ),
+                                  const HightSpace(),
+                                  MyTextFormField(
+                                    text: password,
+                                    btnHeight: formheight(),
+                                    hintText: "Password",
+                                    labelText: "Password",
+                                    prefixIcon: Icon(
+                                      Icons.lock,
+                                      color: AppColor.kPrimary,
                                     ),
-                                    const Expanded(
-                                      child: SizedBox(
+                                    obsecureText: true,
+                                    validate: (value) => value!.isEmpty
+                                        ? "Required Password"
+                                        : null,
+                                  ),
+                                  const HightSpace(),
+                                  MyTextFormField(
+                                    text: confirmPw,
+                                    btnHeight: formheight(),
+                                    hintText: "Confirm Password",
+                                    labelText: "Confirm Password",
+                                    prefixIcon: Icon(
+                                      Icons.lock,
+                                      color: AppColor.kPrimary,
+                                    ),
+                                    obsecureText: true,
+                                    validate: (value) => value!.isEmpty
+                                        ? "Required Password"
+                                        : null,
+                                  ),
+                                  const SizedBox(
+                                    height: 40,
+                                  ),
+                                  MyButton(
+                                    onTap: () {
+                                      Map data = {
+                                        "fullName": name.text,
+                                        "email": email.text,
+                                        "password": password.text,
+                                      };
+                                      if (password.text != confirmPw.text) {
+                                        return Get.snackbar("Error",
+                                            "Invalid email or password",
+                                            snackPosition: SnackPosition.BOTTOM,
+                                            backgroundColor: AppColor.kPrimary,
+                                            colorText: AppColor.kLight);
+                                      } else {
+                                        BazarService.registerUser(data);
+                                        Get.off(() => LoginView());
+                                      }
+                                      ;
+                                    },
+                                    height: 50,
+                                    width: Get.size.width,
+                                    color: AppColor.kDark,
+                                    splashColor: AppColor.kSecondary,
+                                    text: const Text("Sign Up"),
+                                  ),
+                                  HightSpace(),
+                                  Row(
+                                    children: [
+                                      const Expanded(
+                                          child: SizedBox(
                                         width: 250,
+                                      )),
+                                      const Text("Already have an account?"),
+                                      TextButton(
+                                        onPressed: () {
+                                          Get.to(
+                                            () => const LoginView(),
+                                          );
+                                        },
+                                        child: Text(
+                                          "Sign In",
+                                          style: TextStyle(
+                                              color: AppColor.kPrimary),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                )
-                              ],
+                                      const Expanded(
+                                        child: SizedBox(
+                                          width: 250,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),

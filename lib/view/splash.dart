@@ -1,8 +1,10 @@
+import 'package:bazaar/view/homepage.dart';
 import 'package:bazaar/view/welcome.dart';
 import 'package:bazaar/widget/mybackground.dart';
 import 'package:bazaar/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -12,18 +14,22 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  checkAuth() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    var id = preferences.getString("id");
+    if (id != null) {
+      Get.off(() => const HomeView());
+    } else {
+      Future.delayed(const Duration(seconds: 3), () {
+        Get.off(() => const WelcomeView());
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => const WelcomeView(),
-      //   ),
-      // );
-      Get.off(() => const WelcomeView());
-    });
+    checkAuth();
   }
 
   @override

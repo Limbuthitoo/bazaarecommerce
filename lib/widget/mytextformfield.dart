@@ -5,16 +5,18 @@ import 'package:get/get.dart';
 class MyTextFormField extends StatefulWidget {
   final String hintText;
   final String labelText;
+
   final TextEditingController text;
   final TextInputType textInput;
-  final double elevation;
+
   final bool obsecureText;
   final Widget suffixIcon;
   final Widget prefixIcon;
   final EdgeInsetsGeometry btnHeight;
+  final String? Function(String?) validate;
 
   const MyTextFormField({
-    this.elevation = 10,
+    required this.validate,
     this.btnHeight = const EdgeInsets.symmetric(vertical: 30),
     this.hintText = "",
     this.labelText = "",
@@ -47,32 +49,33 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: widget.elevation,
-
-      // clipBehavior: Clip.antiAlias,
-      shadowColor: AppColor.kPrimary.withOpacity(0.5),
-      borderRadius: borderRadius(),
-      child: Column(
-        children: [
-          TextFormField(
-            controller: widget.text,
-            obscureText: widget.obsecureText,
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              labelText: widget.labelText,
-              contentPadding: widget.btnHeight,
-              hintStyle: TextStyle(color: AppColor.kPrimary),
-              labelStyle: TextStyle(color: AppColor.kPrimary),
-              prefixIcon: widget.prefixIcon,
-              suffixIcon: widget.suffixIcon,
-              focusedBorder: borderOutline(),
-              enabledBorder: borderOutline(),
+    return Column(
+      children: [
+        TextFormField(
+          validator: widget.validate,
+          controller: widget.text,
+          obscureText: widget.obsecureText,
+          decoration: InputDecoration(
+            hintText: widget.hintText,
+            labelText: widget.labelText,
+            contentPadding: widget.btnHeight,
+            errorBorder: InputBorder.none,
+            errorStyle: TextStyle(
+              decoration: TextDecoration.none,
+              textBaseline: TextBaseline.alphabetic,
+              fontSize: 12,
+              height: 0.3,
             ),
-            keyboardType: widget.textInput,
+            hintStyle: TextStyle(color: AppColor.kPrimary),
+            labelStyle: TextStyle(color: AppColor.kPrimary),
+            prefixIcon: widget.prefixIcon,
+            suffixIcon: widget.suffixIcon,
+            focusedBorder: borderOutline(),
+            enabledBorder: borderOutline(),
           ),
-        ],
-      ),
+          keyboardType: widget.textInput,
+        ),
+      ],
     );
   }
 }

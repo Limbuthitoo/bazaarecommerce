@@ -15,10 +15,12 @@ class HomeView extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              children: const [
+              children: [
                 AdsContent(
-                  image: Image(image: AssetImage("assets/images/Shoe1.png")),
+                  image:
+                      const Image(image: AssetImage("assets/images/Shoe1.png")),
                   content: "20% OFF \non Men's \nShoe",
+                  color: SliderColor.kSlide1,
                 ),
               ],
             ),

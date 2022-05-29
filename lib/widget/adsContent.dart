@@ -6,8 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 class AdsContent extends StatelessWidget {
   final String content;
   final Image image;
+  final Color color;
   const AdsContent({
     required this.content,
+    required this.color,
     required this.image,
     Key? key,
   }) : super(key: key);
@@ -37,7 +39,7 @@ class AdsContent extends StatelessWidget {
             child: Text(
               content,
               style: TextStyle(
-                color: AppColor.kLight,
+                color: color,
                 fontFamily: GoogleFonts.fredokaOne().fontFamily,
                 fontSize: 35,
               ),
